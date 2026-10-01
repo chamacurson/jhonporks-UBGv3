@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jhonporks UBG</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b12;
+      color: white;
+    }
+
+    header {
+      background: #12121c;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #29293b;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #7c5cff;
+    }
+
+    .search {
+      width: 300px;
+      padding: 11px 15px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: #20202d;
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #171329, #0b0b12);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 35px 20px;
+    }
+
+    .section-title {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .game {
+      background: #171720;
+      border: 1px solid #29293b;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .game:hover {
+      transform: translateY(-5px);
+      border-color: #7c5cff;
+      box-shadow: 0 8px 25px rgba(124, 92, 255, 0.2);
+    }
+
+    .game-image {
+      height: 130px;
+      background: linear-gradient(135deg, #302060, #171720);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+    }
+
+    .game-info {
+      padding: 15px;
+    }
+
+    .game-info h3 {
+      margin-bottom: 7px;
+    }
+
+    .game-info p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+      color: #777;
+      border-top: 1px solid #29293b;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .search {
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">🎮 Jhonporks UBG</div>
+
+    <input
+      class="search"
+      type="text"
+      id="search"
+      placeholder="Search games..."
+      onkeyup="searchGames()"
+    >
+  </header>
+
+  <section class="hero">
+    <h1>Jhonporks UBG</h1>
+    <p>Your game hub</p>
+  </section>
+
+  <main class="container">
+
+    <h2 class="section-title">🔥 Games</h2>
+
+    <div class="games" id="games">
+
+      <div class="game" onclick="openGame('Game 1')">
+        <div class="game-image">🎮</div>
+        <div class="game-info">
+          <h3>Game 1</h3>
+          <p>Coming soon</p>
+        </div>
+      </div>
+
+      <div class="game" onclick="openGame('Game 2')">
+        <div class="game-image">🚗</div>
+        <div class="game-info">
+          <h3>Game 2</h3>
+          <p>Coming soon</p>
+        </div>
+      </div>
+
+      <div class="game" onclick="openGame('Game 3')">
+        <div class="game-image">⚔️</div>
+        <div class="game-info">
+          <h3>Game 3</h3>
+          <p>Coming soon</p>
+        </div>
+      </div>
+
+      <div class="game" onclick="openGame('Game 4')">
+        <div class="game-image">🏀</div>
+        <div class="game-info">
+          <h3>Game 4</h3>
+          <p>Coming soon</p>
+        </div>
+      </div>
+
+      <div class="game" onclick="openGame('Game 5')">
+        <div class="game-image">🧟</div>
+        <div class="game-info">
+          <h3>Game 5</h3>
+          <p>Coming soon</p>
+        </div>
+      </div>
+
+      <div class="game" onclick="openGame('Game 6')">
+        <div class="game-image">🏎️</div>
+        <div class="game-info">
+          <h3>Game 6</h3>
+          <p>Coming soon</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    Jhonporks UBG © 2026
+  </footer>
+
+  <script>
+    function searchGames() {
+      const search = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+      const games = document.querySelectorAll(".game");
+
+      games.forEach(game => {
+        const name = game
+          .querySelector("h3")
+          .textContent
+          .toLowerCase();
+
+        if (name.includes(search)) {
+          game.style.display = "block";
+        } else {
+          game.style.display = "none";
+        }
+      });
+    }
+
+    function openGame(name) {
+      alert(name + " is coming soon!");
+    }
+  </script>
+
+</body>
+</html>
