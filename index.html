@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -163,18 +163,17 @@
 
   <main class="container">
 
-    <h2 class="section-title">🔥 Games</h2>
+    <h2 class="section-title"> Games</h2>
 
     <div class="games" id="games">
 
-      <div class="game" onclick="openGame('Game 1')">
-        <div class="game-image">🎮</div>
-        <div class="game-info">
-          <h3>Game 1</h3>
-          <p>Coming soon</p>
-        </div>
-      </div>
-
+     <div class="game" onclick="openGame('https://tiny-fishing-online.github.io')">
+  <div class="game-image">🎣</div>
+  <div class="game-info">
+    <h3>Tiny Fishing</h3>
+    <p>Fishing game</p>
+  </div>
+</div>   
       <div class="game" onclick="openGame('Game 2')">
         <div class="game-image">🚗</div>
         <div class="game-info">
@@ -246,8 +245,8 @@
       });
     }
 
-    function openGame(name) {
-      alert(name + " is coming soon!");
+   function openGame(url) {
+  window.open(url, "_blank");
     }
   </script>
 
